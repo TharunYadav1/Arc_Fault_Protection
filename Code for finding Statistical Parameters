@@ -1,0 +1,22 @@
+import pandas as pd
+def stat_calc(file):
+
+    """ A User-defined function to take an input dataset and return kurtosis, skewness and standard deviation."""
+
+    import pandas as pd
+
+    import scipy.stats as sc
+
+    df=pd.read_excel(file,header=None)
+
+    if(len(df.columns)>1):
+        df=df[[df.columns[1]]]
+
+    print()
+    print("Kurtosis           = ",sc.kurtosis(df)[0])
+    print("Skewness           = ",sc.skew(df)[0])
+    print("Standard Deviation = ",df.std().iloc[0])
+name=input("Enter file name : ")
+stat_calc(name)
+from google.colab import drive
+drive.mount('/content/drive')
